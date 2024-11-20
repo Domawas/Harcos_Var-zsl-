@@ -12,39 +12,7 @@ adattagok: nev, poz, kaszt, hp - nem kivulrol kapja hanem egy belso fuggveny adj
 
 """
 
-from Jatekos import Jatekos
-harcos=Jatekos("Tubamtolog",0,"támogató","🕵️‍♂️")
-varazslo=Jatekos("Waar'Ash Low",2,"támogató","🧙‍♂️")
+from Jatekter import Jatekter
 
-lista=["_","_","_"]
-lista[harcos.poz]=harcos.emo                #igy tudjuk elérni az adattagokat
-lista[varazslo.poz]=varazslo.emo
-
-
-def kiir(kor:int=0):
-    print(f"{kor}.kör")
-    print("-"*110)
-    print(f"{lista} *[    {harcos.nev} Életereje: {harcos.hp}     ]*[       {varazslo.nev} Életereje: {varazslo.hp}     ]*")
-    print("-"*110)
-
-n=1 # Kör
-kiir(n)
-
-""" Játék
-
-dobunk kockával, az új poziciót. ez a játékos osztály feladata
-"""
-while(harcos.hp>0 and varazslo.hp>0):
-    harcos.set_pozicio() #lép a harcos
-    varazslo.set_pozicio() # lép a varázsló
-    lista=["_","_","_"]
-    lista[harcos.poz]=harcos.emo                #igy tudjuk elérni az adattagokat
-    lista[varazslo.poz]=varazslo.emo
-    if(harcos.poz==varazslo.poz):
-        lista[varazslo.poz]="⚔"
-        """Itt harcolnak """
-        harcos.set_hp()
-        varazslo.set_hp()
-    n+=1
-    kiir(n)
-    input()
+jatekter=Jatekter()
+jatekter.jatekmenet()
